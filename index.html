@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>⁂ Atspėk skaičių</title>
+  <link rel="stylesheet" type="text/css" href="newstyle.css">
+</head>
+
+<body onload="init()">
+  <div id="container">
+
+    <div class="panel">
+      <h1>Žaidimas atspėk skaičių</h1>
+      <h2>Tarp 1 ir 100</h2>
+      <button onclick="newGame()">Naujas žaidimas</button>
+      <button onclick="init()">Tęsti žaidimą</button>
+    </div>
+
+    <div class="panel">
+      <h3 id="textOutput">Įveskite savo spėjimą ir paspauskite mygtuką "Enter" </h3>
+      <input type="number" id="inputBox" onchange="compareGuess()">
+      <p>Spėjimų kiekis: <span id="count">0</span></p>
+
+    </div>
+
+    <div class="panel">
+      <p>Atlikti spėjimai:</p>
+      <p id="guessLog"></p>
+      <p>Laimėjimai: <span id="winning">0</span></p>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var computerGuess;
+    var userGuessArray = [];
+    var guessCount = 0;
+    var win = 0;
+
+    function newGame() {
+      window.location.reload();
+    }
+
+    function init() {
+      computerGuess = Math.floor(Math.random() * 100 + 1);
+      userGuessArray = [];
+      guessCount = 0;
+      document.getElementById("textOutput").innerHTML = "Įveskite savo spėjimą ir paspauskite mygtuką Enter"
+      document.getElementById("count").innerHTML = "";
+      document.getElementById("guessLog").innerHTML = "";
+      console.log(computerGuess);
+    }
+
+    function compareGuess() {
+      var userGuess = " " + document.getElementById("inputBox").value;
+
+      //console.log(userGuess);
+      userGuessArray.push(userGuess);
+      //console.log(userGuessArray);
+      document.getElementById("guessLog").innerHTML = userGuessArray;
+      guessCount++;
+      document.getElementById("count").innerHTML = guessCount;
+
+      if (userGuess > computerGuess) {
+        document.getElementById("textOutput").innerHTML = "Jūsų spėjamas skaičius yra per didelis";
+        document.getElementById("inputBox").value = ""
+
+      } else if (userGuess < computerGuess) {
+        document.getElementById("textOutput").innerHTML = "Jūsų spėjamas skaičius yra per mažas";
+        document.getElementById("inputBox").value = ""
+
+      } else {
+        document.getElementById("textOutput").innerHTML = "Jūs atspėjote skaičių!";
+        document.getElementById("inputBox").value = ""
+        win++;
+        document.getElementById("winning").innerHTML = win
+      }
+    }
+  </script>
+</body>
+
+</html>

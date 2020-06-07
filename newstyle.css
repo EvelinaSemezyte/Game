@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300&display=swap');
+
+/* Nustatymai visam tinklalapiui */
+* {
+  font-family: 'Montserrat', arial;
+  margin: 0;
+  padding: 8px;
+}
+
+body {
+  font-size: 1.2em;
+  background: url("bacground.jpeg") no-repeat center center fixed;
+  background-size: cover;
+  color: white;
+
+}
+
+#container {
+  max-width: 60%;
+  margin: 0 auto;
+  text-align: center;
+  border-radius: 10px;
+  padding: 10px;
+
+  background: #454c52;
+}
+
+.panel {
+  max-width: 80%;
+  margin: 20px auto;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+button {
+  background: #C0C0C0;
+  height: 3em;
+  width: 50%;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  border-radius: 10px;
+  font-size: 1em;
+}
+
+input {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  border-radius: 10px;
+  width: 50%;
+  height: 4em;
+  text-align: center;
+  background: #C0C0C0;
+
+}
